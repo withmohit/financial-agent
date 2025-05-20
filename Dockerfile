@@ -6,7 +6,7 @@ WORKDIR /code
 
 COPY . /code/
 
-RUN poetry install --no-interaction --no-ansi
-
+RUN poetry lock --no-update
+RUN poetry install
 EXPOSE 8000
 CMD poetry run langchain serve --host 0.0.0.0 --port 8000
